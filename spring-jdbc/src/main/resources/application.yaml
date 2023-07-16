@@ -1,0 +1,12 @@
+spring:
+  thymeleaf:
+    cache: false
+    prefix: file:spring-jdbc/src/main/resources/templates/
+
+  datasource:
+    generate-unique-name: false
+    name: tacocloud
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: 7421Crackers
+    url: jdbc:postgresql://192.168.1.65:5432/tacocloud
