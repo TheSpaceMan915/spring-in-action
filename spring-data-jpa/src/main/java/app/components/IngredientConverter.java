@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class IngredientConverter implements Converter<String, Ingredient> {
 
-    private IngredientRepository ingredientRepo;
+    private final IngredientRepository ingredientRepo;
 
     public IngredientConverter(IngredientRepository ingredientRepo) {
         this.ingredientRepo = ingredientRepo;
