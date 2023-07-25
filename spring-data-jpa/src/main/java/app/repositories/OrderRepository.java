@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface OrderRepository extends CrudRepository<TacoOrder, Long> {
 
+    Iterable<TacoOrder> findAllByDeliveryZip(String deliveryZip);
 }

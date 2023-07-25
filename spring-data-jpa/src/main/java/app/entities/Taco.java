@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Timestamp;
@@ -15,6 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
 public class Taco {
 
     @Id
@@ -22,12 +25,6 @@ public class Taco {
     private Long id;
 
     private Timestamp createdAt;
-
-    public Taco() {
-        Instant instant = Instant.now();
-        long milliseconds = instant.toEpochMilli();
-        createdAt = new Timestamp(milliseconds);
-    }
 
     @NotNull
     @Size(min=4, message="Name must be at least 4 characters long")
@@ -40,6 +37,12 @@ public class Taco {
             inverseJoinColumns = @JoinColumn(name="ingredient_id", nullable=false))
     @Size(min=1, message="You must choose at least 1 ingredient")
     private List<Ingredient> ingredients = new ArrayList<>();
+
+    public Taco() {
+        Instant instant = Instant.now();
+        long milliseconds = instant.toEpochMilli();
+        createdAt = new Timestamp(milliseconds);
+    }
 
     @Override
     public String toString() {

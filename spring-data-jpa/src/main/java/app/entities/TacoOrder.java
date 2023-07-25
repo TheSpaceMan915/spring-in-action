@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
+import lombok.AllArgsConstructor;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import lombok.Getter;
@@ -19,6 +20,7 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@AllArgsConstructor
 public class TacoOrder implements Serializable {
 
     @Id
