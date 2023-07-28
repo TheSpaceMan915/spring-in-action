@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.sql.Timestamp;
@@ -17,7 +15,6 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@AllArgsConstructor
 public class Taco {
 
     @Id
