@@ -6,12 +6,14 @@ import app.entities.TacoOrder;
 
 import lombok.extern.slf4j.Slf4j;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.sql.Timestamp;
 
 @Slf4j
 @SpringBootTest
@@ -60,10 +62,39 @@ public class OrderRepositoryTest {
     }
 
     @Test
-    public void testOrderRepository() {
+    public void testSave() {
         TacoOrder fetchedOrder = orderRepository.save(tacoOrder);
         log.info("tacoOrder: {}", fetchedOrder);
         assertThat(fetchedOrder.getId()).isNotNull();
         assertThat(fetchedOrder.getDeliveryName()).isEqualTo("Nigel");
+    }
+
+    @Test
+    @Transactional
+    public void testFindByZip() {
+        Iterable<TacoOrder> tacoOrders = orderRepository.findAllByDeliveryZip("2204");
+        tacoOrders.forEach(order -> log.info("tacoOrder: {}", order));
+        assertThat(tacoOrders).isNotEmpty();
+    }
+
+    @Test
+    @Transactional
+    public void testFindPlacedAtBetween() {
+        Timestamp startDate = Timestamp.valueOf("2023-04-20 12:30:50");
+        Timestamp endDate = Timestamp.valueOf("2023-07-22 23:00:00");
+        Iterable<TacoOrder> tacoOrders =
+                orderRepository.findAllByDeliveryStateAndPlacedAtBetween(
+                        "UK", startDate, endDate);
+
+        tacoOrders.forEach(order -> log.info("tacoOrder: {}", order));
+        assertThat(tacoOrders).isNotEmpty();
+    }
+
+    @Test
+    @Transactional
+    public void testFindFromManchester() {
+        Iterable<TacoOrder> tacoOrders = orderRepository.findAllFromManchester();
+        tacoOrders.forEach(order -> log.info("tacoOrder: {}", order));
+        assertThat(tacoOrders).isNotEmpty();
     }
 }

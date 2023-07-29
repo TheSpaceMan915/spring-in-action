@@ -1,7 +1,5 @@
 package app.controllers;
 
-import static org.mockito.Mockito.when;
-
 import app.entities.Ingredient;
 import app.entities.Ingredient.Type;
 import app.repositories.IngredientRepository;
@@ -15,6 +13,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import static org.mockito.Mockito.when;
 import static org.hamcrest.Matchers.containsString;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
