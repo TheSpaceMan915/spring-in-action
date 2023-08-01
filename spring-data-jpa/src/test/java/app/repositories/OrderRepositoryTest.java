@@ -27,8 +27,22 @@ public class OrderRepositoryTest {
 
     private TacoOrder tacoOrder;
 
+    private void loadData() {
+        ingredientRepo.save(new Ingredient("FLTO", "Flour Tortilla", Ingredient.Type.WRAP));
+        ingredientRepo.save(new Ingredient("COTO", "Corn Tortilla", Ingredient.Type.WRAP));
+        ingredientRepo.save(new Ingredient("GRBF", "Ground Beef", Ingredient.Type.PROTEIN));
+        ingredientRepo.save(new Ingredient("CARN", "Carnitas", Ingredient.Type.PROTEIN));
+        ingredientRepo.save(new Ingredient("TMTO", "Diced Tomatoes", Ingredient.Type.VEGGIES));
+        ingredientRepo.save(new Ingredient("LETC", "Lettuce", Ingredient.Type.VEGGIES));
+        ingredientRepo.save(new Ingredient("CHED", "Cheddar", Ingredient.Type.CHEESE));
+        ingredientRepo.save(new Ingredient("JACK", "Monterrey Jack", Ingredient.Type.CHEESE));
+        ingredientRepo.save(new Ingredient("SLSA", "Salsa", Ingredient.Type.SAUCE));
+        ingredientRepo.save(new Ingredient("SRCR", "Sour Cream", Ingredient.Type.SAUCE));
+    }
+
     @BeforeEach
     public void setup() {
+        loadData();
         Ingredient ingredient1 = ingredientRepo.findById("CARN").orElseThrow();
         Ingredient ingredient2 = ingredientRepo.findById("JACK").orElseThrow();
         Ingredient ingredient3 = ingredientRepo.findById("FLTO").orElseThrow();
@@ -64,9 +78,9 @@ public class OrderRepositoryTest {
     @Test
     public void testSave() {
         TacoOrder fetchedOrder = orderRepository.save(tacoOrder);
-        log.info("tacoOrder: {}", fetchedOrder);
         assertThat(fetchedOrder.getId()).isNotNull();
         assertThat(fetchedOrder.getDeliveryName()).isEqualTo("Nigel");
+        log.info("The test has finished");
     }
 
     @Test

@@ -9,8 +9,8 @@ import lombok.Setter;
 
 import java.sql.Timestamp;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -33,22 +33,15 @@ public class Taco {
             joinColumns = @JoinColumn(name="taco_id", nullable=false),
             inverseJoinColumns = @JoinColumn(name="ingredient_id", nullable=false))
     @Size(min=1, message="You must choose at least 1 ingredient")
-    private List<Ingredient> ingredients = new ArrayList<>();
+    private Set<Ingredient> ingredients = new HashSet<>();
+
+    @ManyToOne
+    private TacoOrder tacoOrder;
 
     public Taco() {
         Instant instant = Instant.now();
         long milliseconds = instant.toEpochMilli();
         createdAt = new Timestamp(milliseconds);
-    }
-
-    @Override
-    public String toString() {
-        return "Taco{" +
-                "id=" + id +
-                ", createdAt=" + createdAt +
-                ", name='" + name + '\'' +
-                ", ingredients=" + ingredients +
-                '}';
     }
 
     public void addIngredient(Ingredient ingredient) {

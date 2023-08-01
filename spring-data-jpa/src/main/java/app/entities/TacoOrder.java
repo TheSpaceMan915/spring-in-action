@@ -52,11 +52,11 @@ public class TacoOrder implements Serializable {
     @Digits(integer=3, fraction=0, message="Invalid CVV")
     private String cardCvv;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinTable(
-            name = "taco_order_taco",
-            joinColumns = @JoinColumn(name="taco_order_id", nullable=false),
-            inverseJoinColumns = @JoinColumn(name="taco_id", nullable=false))
+    @OneToMany(mappedBy="tacoOrder", cascade=CascadeType.ALL)
+//    @JoinTable(
+//            name = "taco_order_taco",
+//            joinColumns = @JoinColumn(name="taco_order_id", nullable=false),
+//            inverseJoinColumns = @JoinColumn(name="taco_id", nullable=false))
     private List<Taco> tacos = new ArrayList<>();
 
     public TacoOrder() {
@@ -65,24 +65,8 @@ public class TacoOrder implements Serializable {
         placedAt = new Timestamp(milliseconds);
     }
 
-    @Override
-    public String toString() {
-        return "TacoOrder{" +
-                "id=" + id +
-                ", placedAt=" + placedAt +
-                ", deliveryName='" + deliveryName + '\'' +
-                ", deliveryStreet='" + deliveryStreet + '\'' +
-                ", deliveryCity='" + deliveryCity + '\'' +
-                ", deliveryState='" + deliveryState + '\'' +
-                ", deliveryZip='" + deliveryZip + '\'' +
-                ", cardNumber='" + cardNumber + '\'' +
-                ", cardExpiration='" + cardExpiration + '\'' +
-                ", cardCvv='" + cardCvv + '\'' +
-                ", tacos=" + tacos +
-                '}';
-    }
-
     public void addTaco(Taco taco) {
         tacos.add(taco);
+        taco.setTacoOrder(this);
     }
 }
