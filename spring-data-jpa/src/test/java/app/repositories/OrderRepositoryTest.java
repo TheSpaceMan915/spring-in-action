@@ -23,7 +23,7 @@ public class OrderRepositoryTest {
     private IngredientRepository ingredientRepo;
 
     @Autowired
-    private OrderRepository orderRepository;
+    private OrderRepository orderRepo;
 
     private TacoOrder tacoOrder;
 
@@ -77,7 +77,7 @@ public class OrderRepositoryTest {
 
     @Test
     public void testSave() {
-        TacoOrder fetchedOrder = orderRepository.save(tacoOrder);
+        TacoOrder fetchedOrder = orderRepo.save(tacoOrder);
         assertThat(fetchedOrder.getId()).isNotNull();
         assertThat(fetchedOrder.getDeliveryName()).isEqualTo("Nigel");
         log.info("The test has finished");
@@ -86,7 +86,7 @@ public class OrderRepositoryTest {
     @Test
     @Transactional
     public void testFindByZip() {
-        Iterable<TacoOrder> tacoOrders = orderRepository.findAllByDeliveryZip("2204");
+        Iterable<TacoOrder> tacoOrders = orderRepo.findAllByDeliveryZip("2204");
         tacoOrders.forEach(order -> log.info("tacoOrder: {}", order));
         assertThat(tacoOrders).isNotEmpty();
     }
@@ -97,7 +97,7 @@ public class OrderRepositoryTest {
         Timestamp startDate = Timestamp.valueOf("2023-04-20 12:30:50");
         Timestamp endDate = Timestamp.valueOf("2023-07-22 23:00:00");
         Iterable<TacoOrder> tacoOrders =
-                orderRepository.findAllByDeliveryStateAndPlacedAtBetween(
+                orderRepo.findAllByDeliveryStateAndPlacedAtBetween(
                         "UK", startDate, endDate);
 
         tacoOrders.forEach(order -> log.info("tacoOrder: {}", order));
@@ -107,7 +107,7 @@ public class OrderRepositoryTest {
     @Test
     @Transactional
     public void testFindFromManchester() {
-        Iterable<TacoOrder> tacoOrders = orderRepository.findAllFromManchester();
+        Iterable<TacoOrder> tacoOrders = orderRepo.findAllFromManchester();
         tacoOrders.forEach(order -> log.info("tacoOrder: {}", order));
         assertThat(tacoOrders).isNotEmpty();
     }
