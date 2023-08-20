@@ -1,3 +1,28 @@
 ### Get recent tacos
 GET http://localhost:8080/api/tacos?recent
 Accept: application/json
+
+### Get a single taco by its id
+http://localhost:8080/api/tacos/2
+Accept: application/json
+
+### Create a taco
+POST http://localhost:8080/api/tacos
+Content-Type: application/json
+
+{
+  "createdAt": "2023-16-19T18:21:00.007+00:00",
+  "name": "Post Taco",
+  "ingredients": [
+    {
+      "id": "FLTO",
+      "name": "Flour Tortilla",
+      "type": "WRAP"
+    },
+    {
+      "id": "SLSA",
+      "name": "Salsa",
+      "type": "SAUCE"
+    }
+  ]
+}
