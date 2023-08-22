@@ -1,0 +1,28 @@
+### Replace an order
+PUT http://localhost:8080/api/orders/2
+Content-Type: application/json
+
+{
+  "id": 2,
+  "placedAt": "2023-16-19T18:21:05.007+00:00",
+  "deliveryName": "Leonardo",
+  "deliveryStreet": "Plashet Grove 21",
+  "deliveryCity": "London",
+  "deliveryState": "UK",
+  "deliveryZip": "9524",
+  "cardNumber": "145565",
+  "cardExpiration": "07/24",
+  "cardCvv": "353"
+}
+
+### Change deliveryName and deliveryCity in an order
+PATCH http://localhost:8080/api/orders/2
+Content-Type: application/json
+
+{
+  "deliveryName": "Christopher",
+  "deliveryCity": "Stuttgart"
+}
+
+### Delete an order
+DELETE http://localhost:8080/api/orders/1

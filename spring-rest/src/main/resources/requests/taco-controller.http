@@ -2,7 +2,7 @@
 GET http://localhost:8080/api/tacos?recent
 Accept: application/json
 
-### Get a single taco by its id
+### Get a single taco
 http://localhost:8080/api/tacos/2
 Accept: application/json
 
