@@ -1,0 +1,3 @@
+### Get all orders
+http://localhost:8080/data-api/orders
+Accept: application/json

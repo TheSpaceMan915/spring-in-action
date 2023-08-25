@@ -1,0 +1,32 @@
+### See all exposed endpoints
+GET http://localhost:8080/data-api
+Accept: application/json
+
+### See the profile of the app
+http://localhost:8080/data-api/profile
+
+### Get all tacos
+GET http://localhost:8080/data-api/tacos
+Accept: application/json
+
+### Get the page with the 3rd taco
+GET http://localhost:8080/data-api/tacos?page=1&size=2
+Accept: application/json
+
+### Get 12 most recent tacos (sorted by createdAt)
+GET http://localhost:8080/data-api/tacos?sort=createdAt,desc&page=0&size=12
+Accept: application/json
+
+### Create a taco
+POST http://localhost:8080/data-api/tacos
+Content-Type: application/json
+
+{
+  "createdAt": "2023-16-19T18:21:00.007+00:00",
+  "name": "Post Taco",
+  "ingredients": [
+      "http://localhost:8080/data-api/ingredients/CARN",
+      "http://localhost:8080/data-api/ingredients/TMTO"
+  ],
+  "tacoOrder": "http://localhost:8080/data-api/orders/2"
+}
