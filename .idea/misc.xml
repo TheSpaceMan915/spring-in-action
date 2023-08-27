@@ -10,7 +10,20 @@
         <option value="$PROJECT_DIR$/spring-data-jpa/pom.xml" />
         <option value="$PROJECT_DIR$/spring-rest/pom.xml" />
         <option value="$PROJECT_DIR$/spring-data-rest/pom.xml" />
+        <option value="$PROJECT_DIR$/tacocloud-restclient/pom.xml" />
+        <option value="$PROJECT_DIR$/tacocloud-rest-client/pom.xml" />
+        <option value="$PROJECT_DIR$/ch07/tacocloud-rest-client/pom.xml" />
+        <option value="$PROJECT_DIR$/ch07/spring-data-rest/pom.xml" />
+        <option value="$PROJECT_DIR$/ch03/spring-data-jpa/pom.xml" />
+        <option value="$PROJECT_DIR$/ch03/spring-data-jdbc/pom.xml" />
+        <option value="$PROJECT_DIR$/ch03/spring-jdbc/pom.xml" />
+        <option value="$PROJECT_DIR$/ch07/spring-rest/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/tacocloud-restclient/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_20" default="true" project-jdk-name="openjdk-20" project-jdk-type="JavaSDK">
