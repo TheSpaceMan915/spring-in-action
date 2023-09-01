@@ -8,16 +8,16 @@ import lombok.*;
 @Entity
 @Getter
 @Setter
-@RequiredArgsConstructor
+@AllArgsConstructor
 @NoArgsConstructor(access=AccessLevel.PROTECTED, force=true)
 public class Ingredient {
 
     @Id
-    private final String id;
+    private String id;
 
-    private final String name;
+    private String name;
 
-    private final Type type;
+    private Type type;
 
     @Override
     public String toString() {
