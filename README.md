@@ -27,7 +27,9 @@
 ## Technologies Used
 - Java 20;
 - Spring 6.0.10;
-- Thymeleaf 3.1.2.
+- Thymeleaf 3.1.2;
+- PostgreSQL 15;
+- IntelliJ IDEA Ultimate 2023.2.1.
 
 
 ## Features
@@ -37,48 +39,60 @@
 
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+
+### Home Page
+![imgur](https://i.imgur.com/JIOERiB.png)
+
+### Taco Design Page
+![imgur](https://i.imgur.com/D9oZ0Xe.png)
+
+### Taco Order Page
+![imgur](https://i.imgur.com/wjEibX2.png)
 <!-- If you have screenshots you'd like to share, include them here. -->
 
 
 ## Setup
-What are the project requirements/dependencies? Where are they listed? A requirements.txt or a Pipfile.lock file perhaps? Where is it located?
-
-Proceed to describe how to install / setup one's local environment / get started with the project.
+* Install IntelliJ IDEA 2023.2.1;
+* Install openjdk-20.0.2;
+* Install PostgreSQL 15.
 
 
 ## Usage
-How does one go about using it?
-Provide various use cases and code examples here.
-
-`write-your-code-here`
+* Clone this repo;
+* Open the project;
+* Choose a module that you'd like to run;
+* In that module find the corresponding pom.xml file (this is the file with the project dependencies);
+* By using the corresponding button reload the maven project;
+* If the module uses a database, find the corresponding application.yaml file in that module;
+* Enter the appropriate name, username, password and url;
+* Run the main application class (the class annotated with @SpringBootApplication);
+* If the module starts a web MVC application, you can access the application at localhost:8080;
+* If the module starts a RESTful service, you can try using the request files in the resources folder.
 
 
 ## Project Status
-Project is: _in progress_ / _complete_ / _no longer being worked on_. If you are no longer working on it, provide reasons why.
+The project is in progress.
 
 
 ## Room for Improvement
-Include areas you believe need improvement / could be improved. Also add TODOs for future development.
-
 Room for improvement:
-- Improvement to be done 1
-- Improvement to be done 2
+- Could add docker files for each module;
+- Could add JUnit tests for each module.
 
 To do:
-- Feature to be added 1
-- Feature to be added 2
+- Start using Spring Security;
+- Start using MongoDB;
+- Start using Angular.
 
 
 ## Acknowledgements
-Give credit here.
-- This project was inspired by...
-- This project was based on [this tutorial](https://www.example.com).
-- Many thanks to...
+- This repository is inspired by my desire to learn the Spring Framework;
+- The repository is based on the book ["Spring in Action"](https://www.amazon.com/Spring-Action-Sixth-Craig-Walls/dp/1617297577/ref=sr_1_1?crid=2WXKF9I8619PG&keywords=spring+in+action&qid=1693828345&sprefix=spring+in+ac%2Caps%2C271&sr=8-1);
+- Many thanks to [@habuma](https://twitter.com/habuma) for writing such a wonderful book!
 
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by [@NikitaKolychev](https://twitter.com/NikitaKolychev) - feel free to contact me!
 
 
 <!-- Optional -->
